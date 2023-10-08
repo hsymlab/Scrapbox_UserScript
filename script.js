@@ -5,8 +5,8 @@
 const paper = {
     vote:               "[投票画面 https://hsymlab.github.io/votesys/index.html]\n\n\n",
     result:             "[*** --結果--]\n",
-    // next:            "[** 〜次回の担当〜]\n" + "全体FG（買い出し係）：\n" + "希望お菓子：\n" + "英語論文：\n",
-    next:               "[** 〜次回の担当〜]\n" + "全体FG：\n" + "英語論文：\n",
+    next:            "[** 〜次回の担当〜]\n" + "全体FG：\n" + "買い出し係：\n" + "希望お菓子：\n" + "英語論文：\n\n",
+    // next:               "[** 〜次回の担当〜]\n" + "全体FG：\n" + "英語論文：\n" + "買い出し担当：\n",
     next_role_table:    "[https://scrapbox.io/files/652228fa5aeadb001c0b7ece.png]\n\n",
     tag:                "#論文ゼミ"
 }
