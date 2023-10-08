@@ -1,40 +1,40 @@
 //Global変数宣言 ---------------------------------------------------------------------->
 
  //論文ゼミ
- // TODO 年度・学期ごとに修正（url, next_role_table）
+ //TODO 担当表を更新する（next_role_table）
 const paper = {
-    vote:               "[投票画面 https://hsymlab.github.io/votesys/index.html]\n\n",
-    result:             "[*** --結果--]\n\n\n",
+    vote:               "[投票画面 https://hsymlab.github.io/votesys/index.html]\n\n\n",
+    result:             "[*** --結果--]\n",
     // next:            "[** 〜次回の担当〜]\n" + "全体FG（買い出し係）：\n" + "希望お菓子：\n" + "英語論文：\n",
     next:               "[** 〜次回の担当〜]\n" + "全体FG：\n" + "英語論文：\n",
-    next_role_table:    "[https://scrapbox.io/files/64743def089b43001b52ed78.png]\n\n",
+    next_role_table:    "[https://scrapbox.io/files/652228fa5aeadb001c0b7ece.png]\n\n",
     tag:                "#論文ゼミ"
 }
 
 //進捗ゼミ
-// TODO　年度・学期ごとに修正(url, next_role_table)
+//TODO　担当表を更新する(next_role_table)
 const progress = {
     vote:               "\n",
     result:             "",
     next:               "[** 〜次回の担当〜]\n" + "全体FG：\n",
     // next_role_table:   "[研究室ブログ執筆 https://scrapbox.io/hsym2022/%E7%A0%94%E7%A9%B6%E5%AE%A4%E3%83%96%E3%83%AD%E3%82%B0%E5%9F%B7%E7%AD%86]\n" + "[https://scrapbox.io/files/633bc6392bdd29001df90e22.png]\n\n",
-    next_role_table:    "[https://scrapbox.io/files/64743def089b43001b52ed78.png]\n\n",
+    next_role_table:    "[https://scrapbox.io/files/652228fa5aeadb001c0b7ece.png]\n\n",
     tag:                "#進捗ゼミ"
 }
 
 
 // メンバーリスト(2023)
-// TODO グループ決めて、各メンバー書き換える。いないところは"--"
+// TODO グループ決めて、各メンバー書き換える。人数を揃える必要があるので，不足があるところは"--"
 const paper_member = [
-    ["小川","出口", "東川","武田", "吉岡"],
-    ["小原","笹川","名執", "細川", "--"],
-    ["ギータ","林", "新妻","柳谷", "--"]
+    ["林","出口", "柳谷","吉岡"],
+    ["小川","名執","新妻", "武田"],
+    ["小原","笹川", "東川","細川"]
 ];
 
 const progress_member = [
-    ["小川","出口", "東川","武田", "吉岡"],
-    ["小原","笹川","名執", "細川", "--"],
-    ["ギータ","林", "新妻","柳谷", "--"]
+    ["林","出口", "柳谷","吉岡"],
+    ["小川","名執","新妻", "武田"],
+    ["小原","笹川", "東川","細川"]
 ];
 
 // M2
@@ -48,17 +48,17 @@ const m2_member = ['小川', '笹川', '林'];
 // ページ内テキスト生成
 const gen_page = (member, number, seminar) => {
 
-    const { result, next, next_role_table, tag } = seminar;
+    const { vote, result, next, next_role_table, tag } = seminar;
 
     // 全体FG
-    let text = '[** 全体FG：]\n\n';
+    let text = `[** 全体FG：]\n\n`;
 
     // 欠席・遠隔参加者
     text += '[* 欠席：]\n[* 遠隔参加：]\n[* 早退（h:min）：]\n\n\n'
 
     text += shuffle_members(member, number);
 
-    text += `${result}${next}${next_role_table}[*** --連絡--]\n\n\n${tag}`;
+    text += `${result}${vote}${next}${next_role_table}[*** --連絡--]\n\n\n${tag}`;
 
     return text;
 }
@@ -196,7 +196,6 @@ const gen_page_m2 = (member) => {
 
     return text;
 };
-
 
 // 配列の中身をシャッフル
 const shuffle_arr = (arr) => {
